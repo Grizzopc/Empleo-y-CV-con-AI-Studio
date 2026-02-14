@@ -24,6 +24,27 @@ export interface CVAnalysisResult {
   hash?: string;
 }
 
+export interface AnalysisHistoryItem {
+  id: string;
+  timestamp: string;
+  fileName: string;
+  result: CVAnalysisResult;
+  trends?: {
+    [key: string]: 'up' | 'down' | 'stable';
+  };
+}
+
+export interface CVComparisonResult {
+  analysis: string;
+  improvements: string[];
+  remainingGaps: string[];
+  sectorComparison: {
+    name: string;
+    diff: number;
+    status: 'improved' | 'declined' | 'stable';
+  }[];
+}
+
 export interface RawMetrics {
   pageCount: number;
   hasSections: boolean;
@@ -59,7 +80,7 @@ export interface CompanyMatch {
   reason: string;
   location: string;
   availablePositions: number;
-  website: string; // This should be the direct job link
+  website: string; 
   description: string;
   culture: string[];
   benefits: string[];
@@ -83,4 +104,4 @@ export interface UserPreferences {
   employmentType: string;
 }
 
-export type AnalysisStatus = 'idle' | 'preferences' | 'analyzing' | 'completed' | 'error';
+export type AnalysisStatus = 'idle' | 'preferences' | 'analyzing' | 'completed' | 'error' | 'history' | 'comparing';

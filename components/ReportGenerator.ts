@@ -51,7 +51,7 @@ export const generatePDFReport = (result: CVAnalysisResult, matches: CompanyMatc
   doc.setTextColor(255, 255, 255);
   doc.setFontSize(22);
   doc.setFont('helvetica', 'bold');
-  doc.text('CV Booster Argentina', config.margin, 25);
+  doc.text('Empleo y CV Argentina', config.margin, 25);
   
   currentY = 55;
   doc.setTextColor(config.colors.primary[0], config.colors.primary[1], config.colors.primary[2]);
